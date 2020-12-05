@@ -1,17 +1,19 @@
 package com.egco.wholesomefoodapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.egco.wholesomefoodapp.R
 import kotlinx.android.synthetic.main.row.view.*
 
-class MyAdapter(private val List:List<String>,private val context:Context):
+class MyAdapter(private val List:List<String>, private val context:Context, private val CellClick:CellClickListener):
     RecyclerView.Adapter<MyAdapter.ViewHolder>() {
-    class ViewHolder(itemView:View):RecyclerView.ViewHolder(itemView)
+    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
     {
         fun bindItems(model : String)
         {
@@ -32,8 +34,9 @@ class MyAdapter(private val List:List<String>,private val context:Context):
         holder.bindItems(List[position])
 
         holder.itemView.setOnClickListener{
-            Toast.makeText(context,holder.getName(),Toast.LENGTH_SHORT).show()
+            CellClick.onCellClickListener(holder.getName())
         }
+
     }
 
     override fun getItemCount(): Int {

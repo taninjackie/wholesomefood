@@ -19,7 +19,7 @@
         <activity android:name=".CreateUser"/>
         <activity android:name=".CreateUser2"/>
         <activity android:name=".CreateUserResult"/>
-
+        <activity android:name=".LoginActivity"/>
 
     </application>
 
