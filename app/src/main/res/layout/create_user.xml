@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#62B7EA">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="590dp"
+        android:layout_height="958dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.365"
+        app:srcCompat="@drawable/path" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="113dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="148dp"
+        android:text="Password"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crutext" />
+
+    <TextView
+        android:id="@+id/crutext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Create User"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="113dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="28dp"
+        android:text="Username"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.164"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crutext" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="148dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="268dp"
+        android:text="Name-Surname"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.186"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crutext" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="304dp"
+        android:layout_height="323dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/textplain" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="304dp"
+        android:layout_height="323dp"
+        android:layout_marginTop="176dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/textplain" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="304dp"
+        android:layout_height="323dp"
+        android:layout_marginTop="296dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.336"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/textplain" />
+
+    <EditText
+        android:id="@+id/namesurP"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="264dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="432dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:ems="10"
+        android:fallbackLineSpacing="false"
+        android:inputType="textLongMessage|textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/passwordP"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="264dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="312dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:ems="10"
+        android:fallbackLineSpacing="false"
+        android:inputType="textLongMessage|textPersonName"
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/usrNameP"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="264dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="192dp"
+        android:backgroundTint="#FFFFFF"
+        android:drawableTint="#FFFFFF"
+        android:ems="10"
+        android:fallbackLineSpacing="false"
+        android:inputType="textLongMessage|textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.379"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="596dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/controlsbutton" />
+
+    <ImageView
+        android:id="@+id/nextBt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="596dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/controlsbutton2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
