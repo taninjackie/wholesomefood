@@ -70,29 +70,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/ResultBT"
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="528dp"
-        android:cursorVisible="false"
-        android:text="Result"
-        android:visibility="gone"
+        android:layout_marginTop="516dp"
+        android:backgroundTint="#EF9A9A"
+        app:indicatorColor="#EBFF0000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/successText"
-        style="@style/Widget.AppCompat.TextView.SpinnerItem"
-        android:layout_width="169dp"
-        android:layout_height="68dp"
-        android:layout_marginTop="584dp"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

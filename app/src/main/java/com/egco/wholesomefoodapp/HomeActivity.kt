@@ -23,7 +23,7 @@ class HomeActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
 
-        val username:String = intent.getStringExtra("username")!!
+        val username:String = intent.getStringExtra("username")!!.toString()
         val name:String = intent.getStringExtra("name")!!
 
         nameHome.text = "Name : $name"
@@ -40,7 +40,7 @@ class HomeActivity:AppCompatActivity() {
             Category("Detection", R.drawable.catagory4),
         )
 
-        val adapter = CustomAdapter(this, categoryList)
+        val adapter = CustomAdapter(this, categoryList,username)
         GridView.adapter = adapter
 
     }
@@ -54,6 +54,7 @@ class HomeActivity:AppCompatActivity() {
         }
         return jsonString
     }
+    @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
         val username:String = intent.getStringExtra("username")!!
@@ -67,9 +68,8 @@ class HomeActivity:AppCompatActivity() {
 
     private class ViewHolder(val categoryNameText: TextView, val iconCategoryView: ImageView)
 
-    class CustomAdapter(private val context: Context, category: ArrayList<Category>) : BaseAdapter() {
+    class CustomAdapter(private val context: Context, category: ArrayList<Category>,val username:String) : BaseAdapter() {
         private val categoryList:ArrayList<Category> = category
-
         override fun getCount(): Int {
             return categoryList.size
         }
@@ -101,8 +101,9 @@ class HomeActivity:AppCompatActivity() {
             rowMain.setOnClickListener {
                 if(rowMain.categoryNameText.text == "Detection")
                 {
-                    val intent = Intent(context, DectectionActivity::class.java)
+                    val intent = Intent(context, DetectionActivity::class.java)
                     intent.putExtra("Category", categoryList[position].name)
+                    intent.putExtra("username",username)
                     context.startActivity(intent)
                 }
 
