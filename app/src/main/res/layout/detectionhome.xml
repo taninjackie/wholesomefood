@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBF6FF"
+    android:backgroundTint="#3F5080"
+    android:backgroundTintMode="screen">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="413dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="32dp"
+        android:background="#00A59595"
+        android:backgroundTint="#26FFFFFF"
+        android:backgroundTintMode="screen"
+        android:gravity="center"
+        android:text="Detection"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/camBt"
+        android:layout_width="107dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="368dp"
+        android:backgroundTint="#39B6EF"
+        android:text="camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/uploadBt"
+        android:layout_width="107dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="368dp"
+        android:backgroundTint="#6AB66D"
+        android:text="UPLOAD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.755"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/detectionPreImage"
+        android:layout_width="265dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="128dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/detecBT"
+        android:layout_width="187dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="440dp"
+        android:backgroundTint="#DF3C3C"
+        android:text="Detect"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ResultBT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="528dp"
+        android:cursorVisible="false"
+        android:text="Result"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/successText"
+        style="@style/Widget.AppCompat.TextView.SpinnerItem"
+        android:layout_width="169dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="584dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

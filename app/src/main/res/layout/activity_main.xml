@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#62B7EA"
+    android:background="#CFEDFF"
     tools:context="com.egco.wholesomefoodapp.MainActivity">
 
     <TextView
@@ -14,7 +14,7 @@
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
         android:text="Wholesome food Ingredients recognition"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,10 +61,10 @@
 
     <Button
         android:id="@+id/addUser"
-        android:layout_width="84dp"
-        android:layout_height="49dp"
-        android:background="#A7FF92"
-        android:backgroundTint="#A7FF92"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="88dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#79C079"
         android:text="+"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="24sp"
@@ -73,6 +73,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.132" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

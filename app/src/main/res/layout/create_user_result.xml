@@ -4,19 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#62B7EA">
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="590dp"
-        android:layout_height="958dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.365"
-        app:srcCompat="@drawable/path" />
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/crutext2"
@@ -60,44 +48,48 @@
         android:layout_marginTop="128dp"
         android:text="Username :"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nsR"
-        android:layout_width="316dp"
-        android:layout_height="21dp"
+        android:layout_width="319dp"
+        android:layout_height="28dp"
         android:layout_marginTop="160dp"
         android:text="Name-Surname :"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.673"
+        app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/FoodAText"
-        android:layout_width="156dp"
-        android:layout_height="21dp"
+        android:layout_width="161dp"
+        android:layout_height="26dp"
         android:layout_marginTop="252dp"
         android:text="Food Allergy"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/foodallergyText"
-        android:layout_width="265dp"
-        android:layout_height="230dp"
+        android:layout_width="280dp"
+        android:layout_height="231dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.592" />
+        app:layout_constraintVertical_bias="0.586" />
 </androidx.constraintlayout.widget.ConstraintLayout>

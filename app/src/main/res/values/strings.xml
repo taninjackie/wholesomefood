@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application TEST</string>
+    <string name="menu1">number1</string>
+    <string name="menu2">number2</string>
 </resources>

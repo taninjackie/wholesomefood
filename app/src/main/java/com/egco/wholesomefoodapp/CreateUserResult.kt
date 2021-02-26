@@ -38,9 +38,8 @@ class CreateUserResult:AppCompatActivity() {
         }
     }
     override fun onCreate(savedInstanceState: Bundle?) {
-        val list = arrayOf("ChickenBreast" , "Shrimp", "Salmon", "Dolly_fish", "Boiled eggs", "Mackerel", "Tomato", "Pumpkin", "Cucumber", "Broccoli", "Carrot", "Rambutan", "Banana", "Guava")
+        val list = arrayOf("Shrimp", "Salmon", "Apple", "Tomato", "Pumpkin", "Cucumber", "Broccoli", "Rambutan")
         val username = intent.getStringExtra("username")
-        val password = intent.getStringExtra("password")
         val name     = intent.getStringExtra("name")
         val foodallergy = intent.getIntegerArrayListExtra("foodallergy")
         val foodallergyOfUser =ArrayList<String>()
@@ -50,7 +49,7 @@ class CreateUserResult:AppCompatActivity() {
 
         usrR.text = usrR.text.toString() +" "+ username
         nsR.text  = nsR.text.toString()  +" "+ name
-        for(i in 0..14)
+        for(i in 0..7)
         {
             if(foodallergy!![i] == 1)
             {
@@ -60,7 +59,7 @@ class CreateUserResult:AppCompatActivity() {
         }
 
         nextBt3.setOnClickListener {
-            val user = UserModel(username!!,password!!,name!!,foodallergyOfUser)
+            val user = UserModel(foodallergyOfUser,name!!,username!!)
             val gsonPretty = GsonBuilder().setPrettyPrinting().create()
             val json: String = gsonPretty.toJson(user)
             save("$username.json", json)

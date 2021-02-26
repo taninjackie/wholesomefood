@@ -1,4 +1,4 @@
-package com.egco.wholesomefoodapp
+/*package com.egco.wholesomefoodapp
 
 import android.content.Context
 import android.content.Intent
@@ -25,8 +25,11 @@ class LoginActivity:AppCompatActivity (){
 
         loginBt.setOnClickListener {
             if(passwordLoginText.text.toString() == userModel.password){
-
+                val intent = Intent(this,HomeActivity::class.java)
+                intent.putExtra("username",username)
+                intent.putExtra("name",userModel.name)
                 Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
+                startActivity(intent)
             }
             else
             {
@@ -49,4 +52,4 @@ class LoginActivity:AppCompatActivity (){
         }
         return jsonString
     }
-}
+}*/
