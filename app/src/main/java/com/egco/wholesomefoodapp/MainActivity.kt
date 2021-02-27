@@ -1,5 +1,6 @@
 package com.egco.wholesomefoodapp
 
+import android.R.string
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -12,14 +13,13 @@ import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
 import java.io.*
-import kotlin.math.log
 
 
 class MainActivity : AppCompatActivity() ,CellClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d("filepath", filesDir.toString())
+        //Log.d("filepath", filesDir.toString())
 
         fun save(file: String, text: String) {
             var fos: FileOutputStream? = null
@@ -63,10 +63,6 @@ class MainActivity : AppCompatActivity() ,CellClickListener {
         {
             save("users.txt", "")
         }
-
-        //val arrayList = ArrayList<UserModel>()
-        //arrayList.add(UserModel("taninjackie","12345"))
-        //arrayList.add(UserModel("boat001"    ,"12345"))
 
 
         addUser.setOnClickListener {

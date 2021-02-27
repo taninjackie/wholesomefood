@@ -116,7 +116,7 @@ class ResultImageDetection:AppCompatActivity() {
 
         saveDetectBT.setOnClickListener {
                 if (nameOfFood.text.toString() != "") {
-                    val dateTime:String = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")).toString()
+                    val dateTime:String = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")).toString()
                     val saveData = SaveDetection(
                         dateTime, nameOfFood.text.toString(), classname.text.toString(), nutrient!!
                     )
@@ -124,13 +124,17 @@ class ResultImageDetection:AppCompatActivity() {
                     val json: String = gsonPretty.toJson(saveData)
                     Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show()
 
+                    val subFolder = File(this.filesDir, "/$username")
+                    if (!subFolder.exists()) {
+                        subFolder.mkdirs();
+                    }
+                    val subFolderPath = this.filesDir.absolutePath + File.separator + username
+                    val outputStream = FileOutputStream(File(subFolderPath, "his_$username+$dateTime.txt"))
+                    outputStream.write(json.toByteArray())
+                    outputStream.close()
 
-
-                    //save("$filesDir/fff/j.json",json)
-
-
-                    /*Intent(this, DetectionActivity::class.java).putExtra("username", username)
-                    startActivity(Intent(this, DetectionActivity::class.java))*/
+                    Intent(this, DetectionActivity::class.java).putExtra("username", username)
+                    startActivity(Intent(this, DetectionActivity::class.java))
 
                 }
                 else {

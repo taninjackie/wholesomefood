@@ -32,9 +32,6 @@ class SettingActivity: AppCompatActivity() {
                 usernameBackup = lines.fold("") { some, text -> "$text" }
             }
             val listUserBackup = usernameBackup.split(",").toMutableList()
-            /*Log.d("list2", list.toString())
-            Log.d("list2", list[0])
-            Log.d("list22", list.joinToString ())*/
             deleteFile("users.txt")
             for(i in listUserBackup.indices)
             {
@@ -68,9 +65,7 @@ class SettingActivity: AppCompatActivity() {
 
         }
     }
-    private fun deleteUser() {
 
-    }
 
     private fun save(file:String,text:String) {
         var fos: FileOutputStream? = null
@@ -129,7 +124,6 @@ class SettingActivity: AppCompatActivity() {
         builder.show()
     }
     fun withMultiChoiceList(view: View) {
-
         val items = arrayOf("Shrimp", "Salmon", "Apple", "Tomato", "Pumpkin", "Cucumber", "Broccoli", "Rambutan")
         val selectedList = ArrayList<Int>()
         val builder = AlertDialog.Builder(this,R.style.AlertDialogTheme)

@@ -125,9 +125,6 @@ class DetectionActivity:AppCompatActivity() {
         }
     }
 
-
-
-
     private fun fixbug64(b64: String):String{
         val new  = b64.substring(1).substring(1).dropLast(1)
         Log.d("Dedsecq", new)
@@ -156,7 +153,7 @@ class DetectionActivity:AppCompatActivity() {
             .add("img", base64)
             .build();
         val request = Request.Builder()
-            .url("https://acc667dc6ef1.ngrok.io/test")
+            .url("https://b41b7f9c4f83.ngrok.io/test")
             .post(formbody)
             .build()
         client.newCall(request).enqueue(object : Callback {

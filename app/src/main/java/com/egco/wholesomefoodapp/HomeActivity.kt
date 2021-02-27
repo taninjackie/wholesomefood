@@ -35,7 +35,7 @@ class HomeActivity:AppCompatActivity() {
         }
         val categoryList = arrayListOf(
             Category("Status", R.drawable.catagory1),
-            Category("Nutrient", R.drawable.catagory2),
+            Category("History", R.drawable.catagory2),
             Category("Ingredient", R.drawable.catagory3),
             Category("Detection", R.drawable.catagory4),
         )
@@ -106,7 +106,11 @@ class HomeActivity:AppCompatActivity() {
                     intent.putExtra("username",username)
                     context.startActivity(intent)
                 }
-
+                if(rowMain.categoryNameText.text == "History")
+                {
+                    Intent(context, HistoryActivity::class.java).putExtra("username",username)
+                    context.startActivity(Intent(context, HistoryActivity::class.java))
+                }
             }
 
             return rowMain
