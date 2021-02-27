@@ -124,9 +124,7 @@ class ResultImageDetection:AppCompatActivity() {
                     val json: String = gsonPretty.toJson(saveData)
                     Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show()
 
-                    /*val folder = filesDir
-                    val f = File(folder, "fff")
-                    f.mkdir()*/
+
 
                     //save("$filesDir/fff/j.json",json)
 

@@ -2,8 +2,11 @@ package com.egco.wholesomefoodapp
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -11,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.setting_activity.*
 import java.io.*
 import java.util.*
@@ -21,9 +25,53 @@ class SettingActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_activity)
+        val username  = intent.getStringExtra("username").toString()
+        val deleteUser = { dialog: DialogInterface, which: Int ->
+            var usernameBackup:String = ""
+            applicationContext.openFileInput("users.txt").bufferedReader().useLines { lines ->
+                usernameBackup = lines.fold("") { some, text -> "$text" }
+            }
+            val listUserBackup = usernameBackup.split(",").toMutableList()
+            /*Log.d("list2", list.toString())
+            Log.d("list2", list[0])
+            Log.d("list22", list.joinToString ())*/
+            deleteFile("users.txt")
+            for(i in listUserBackup.indices)
+            {
+                if(listUserBackup[i] == username)
+                {
+                    listUserBackup[i] = ""
+                }
+                if(listUserBackup[i] != "")
+                {
+                    save("users.txt",listUserBackup[i]+",")
+                }
+            }
+            deleteFile("$username.json")
+            startActivity(Intent(this,MainActivity::class.java))
+        }
+        deleteUserBT.setOnClickListener {
+            val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustomDelete))
 
+            with(builder)
+            {
+                setTitle("Are you sure to delete ?")
+                setPositiveButton(
+                    "OK",
+                    DialogInterface.OnClickListener(function = deleteUser)
+                )
+                setNegativeButton("Cancel") { dialog: DialogInterface, which: Int -> }
+
+                show()
+            }
+
+
+        }
+    }
+    private fun deleteUser() {
 
     }
+
     private fun save(file:String,text:String) {
         var fos: FileOutputStream? = null
         try {

@@ -2,10 +2,8 @@ package com.egco.wholesomefoodapp
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.media.Image
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,19 +11,15 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.*
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
-import java.io.FileNotFoundException
-import java.io.FileOutputStream
-import java.io.IOException
+import java.io.*
+import kotlin.math.log
 
 
 class MainActivity : AppCompatActivity() ,CellClickListener {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
+        Log.d("filepath", filesDir.toString())
 
         fun save(file: String, text: String) {
             var fos: FileOutputStream? = null
