@@ -22,27 +22,12 @@ import java.util.*
 
 
 class ResultImageDetection:AppCompatActivity() {
-    fun save(file:String,text:String) {
-        var fos: FileOutputStream? = null
-        try {
-            fos = openFileOutput(file, MODE_APPEND)
-            fos.write(text.toByteArray())
-            Toast.makeText(this, "Create User Success",Toast.LENGTH_LONG).show()
-        } catch (e: FileNotFoundException) {
-            e.printStackTrace()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } finally {
-            if (fos != null) {
-                try {
-                    fos.close()
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-            }
-        }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Intent(this, DetectionActivity::class.java).putExtra("username", getUsername())
+        Log.d("username2222", getUsername())
+        startActivity(Intent(this, DetectionActivity::class.java))
     }
-
     private fun withCustomStyle(nutrient: List<String>) {
         val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustom))
         var dataForShow  = ""
@@ -64,6 +49,10 @@ class ResultImageDetection:AppCompatActivity() {
         detectImage.setImageBitmap(bitmap)
     }
 
+    private fun getUsername():String{
+        val username: String = intent.getStringExtra("username").toString()
+        return username
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,7 +73,7 @@ class ResultImageDetection:AppCompatActivity() {
         Log.d("d123", bitmapDetect!!)
         decodeImage(bitmapDetect)
         Log.d("imageclass", intent.getStringExtra("imageclass").toString())
-        for (i in 0 until (arrayNameOfClass.size - 1)) {
+        for (i in 0 until (arrayNameOfClass.size )) {
             if ((intent.getStringExtra("imageclass")!!.toInt()) - 1 == i)
                 classname.text = arrayNameOfClass[i]
         }
@@ -99,10 +88,10 @@ class ResultImageDetection:AppCompatActivity() {
             val string = String(buffer)
             val ingredientModel = Gson().fromJson(string, Ingredient::class.java)
 
-            Log.d("test", ingredientModel.apple.nutrient[0])
+            //Log.d("test", ingredientModel.apple.nutrient[0])
             when (classname.text.toString()) {
                 "Apple" -> nutrient = ingredientModel.apple.nutrient
-                "Brocoli" -> nutrient = ingredientModel.brocoli.nutrient
+                "Broccoli" -> nutrient = ingredientModel.broccoli.nutrient
                 "Cucumber" -> nutrient = ingredientModel.cucumber.nutrient
                 "Pumpkin" -> nutrient = ingredientModel.pumpkin.nutrient
                 "Rambutan" -> nutrient = ingredientModel.rambutan.nutrient
@@ -120,17 +109,22 @@ class ResultImageDetection:AppCompatActivity() {
                     val saveData = SaveDetection(
                         dateTime, nameOfFood.text.toString(), classname.text.toString(), nutrient!!
                     )
-                    val gsonPretty = GsonBuilder().setPrettyPrinting().create()
-                    val json: String = gsonPretty.toJson(saveData)
-                    Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show()
+                    //val gsonPretty = GsonBuilder().setPrettyPrinting().create()
+                    //val json: String = gsonPretty.toJson(saveData)
+                    var hisdata :String = saveData.date+","+saveData.ingredient+","+saveData.name+","
+                    for(i in saveData.nutrient.indices)
+                    {
+                        hisdata += saveData.nutrient[i] + ","
+                    }
+                    Toast.makeText(this, "Save Success", Toast.LENGTH_SHORT).show()
 
                     val subFolder = File(this.filesDir, "/$username")
                     if (!subFolder.exists()) {
                         subFolder.mkdirs();
                     }
                     val subFolderPath = this.filesDir.absolutePath + File.separator + username
-                    val outputStream = FileOutputStream(File(subFolderPath, "his_$username+$dateTime.txt"))
-                    outputStream.write(json.toByteArray())
+                    val outputStream = FileOutputStream(File(subFolderPath, "$username+$dateTime.txt"))
+                    outputStream.write(hisdata.toByteArray())
                     outputStream.close()
 
                     Intent(this, DetectionActivity::class.java).putExtra("username", username)

@@ -27,7 +27,6 @@ class DetectionActivity:AppCompatActivity() {
     private var b64DetectingObject : Image64? = null
     private var imageUri: Uri? = null
 
-
     private fun checkImage(username :String){
         if(b64DetectingObject!=null){
             val user_name : String = username
@@ -153,7 +152,7 @@ class DetectionActivity:AppCompatActivity() {
             .add("img", base64)
             .build();
         val request = Request.Builder()
-            .url("https://b41b7f9c4f83.ngrok.io/test")
+            .url("https://d0f88507a791.ngrok.io/test")
             .post(formbody)
             .build()
         client.newCall(request).enqueue(object : Callback {

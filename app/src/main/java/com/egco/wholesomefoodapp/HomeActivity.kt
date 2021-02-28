@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,13 +20,12 @@ import java.io.IOException
 
 class HomeActivity:AppCompatActivity() {
     @SuppressLint("SetTextI18n")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
-
         val username:String = intent.getStringExtra("username")!!.toString()
         val name:String = intent.getStringExtra("name")!!
-
         nameHome.text = "Name : $name"
 
         settingicon.setOnClickListener {
@@ -68,8 +68,9 @@ class HomeActivity:AppCompatActivity() {
 
     private class ViewHolder(val categoryNameText: TextView, val iconCategoryView: ImageView)
 
-    class CustomAdapter(private val context: Context, category: ArrayList<Category>,val username:String) : BaseAdapter() {
+    class CustomAdapter(private val context: Context, category: ArrayList<Category>, username:String) : BaseAdapter() {
         private val categoryList:ArrayList<Category> = category
+        private val user_name = username
         override fun getCount(): Int {
             return categoryList.size
         }
@@ -102,14 +103,15 @@ class HomeActivity:AppCompatActivity() {
                 if(rowMain.categoryNameText.text == "Detection")
                 {
                     val intent = Intent(context, DetectionActivity::class.java)
-                    intent.putExtra("Category", categoryList[position].name)
-                    intent.putExtra("username",username)
+                    intent.putExtra("username",user_name)
                     context.startActivity(intent)
                 }
                 if(rowMain.categoryNameText.text == "History")
                 {
-                    Intent(context, HistoryActivity::class.java).putExtra("username",username)
-                    context.startActivity(Intent(context, HistoryActivity::class.java))
+                    val intent =Intent(context, HistoryActivity::class.java)
+                    intent.putExtra("username",user_name)
+                    Log.d("tttt", user_name)
+                    context.startActivity(intent)
                 }
             }
 

@@ -11,8 +11,8 @@
 
         <TextView
             android:id="@+id/dateHis"
-            android:layout_width="136dp"
-            android:layout_height="21dp"
+            android:layout_width="135dp"
+            android:layout_height="26dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="TextView"
@@ -26,7 +26,7 @@
         <TextView
             android:id="@+id/nameOfFoodHis"
             android:layout_width="136dp"
-            android:layout_height="21dp"
+            android:layout_height="26dp"
             android:layout_marginTop="16dp"
             android:gravity="center"
             android:text="TextView"

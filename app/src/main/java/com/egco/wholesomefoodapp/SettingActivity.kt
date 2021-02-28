@@ -45,6 +45,8 @@ class SettingActivity: AppCompatActivity() {
                 }
             }
             deleteFile("$username.json")
+            val file = File(filesDir.toString(), username)
+            file.deleteRecursively()
             startActivity(Intent(this,MainActivity::class.java))
         }
         deleteUserBT.setOnClickListener {
