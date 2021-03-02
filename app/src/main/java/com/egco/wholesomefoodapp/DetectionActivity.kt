@@ -9,13 +9,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.detectionhome.*
-import kotlinx.android.synthetic.main.row.*
 import okhttp3.*
 import java.io.ByteArrayOutputStream
 import java.io.IOException
@@ -23,22 +20,20 @@ import java.util.*
 
 
 class DetectionActivity:AppCompatActivity() {
-    private var bitmapForDetect : Bitmap? = null
-    private var b64DetectingObject : Image64? = null
+    private var bitmapForDetect: Bitmap? = null
+    private var b64DetectingObject: Image64? = null
     private var imageUri: Uri? = null
-
-    private fun checkImage(username :String){
-        if(b64DetectingObject!=null){
-            val user_name : String = username
+    private fun checkImage(username: String) {
+        if (b64DetectingObject != null) {
+            val user_name: String = username
             val intent = Intent(this, ResultImageDetection::class.java)
             intent.putExtra("bitmapDetect", fixbug64(b64DetectingObject!!.b64))
-            intent.putExtra("imageclass", b64DetectingObject!!.imageclass)
+            intent.putStringArrayListExtra("imageclass", b64DetectingObject!!.imageclass)
             intent.putExtra("score", b64DetectingObject!!.score)
-            intent.putExtra("username",user_name)
+            intent.putExtra("username", user_name)
             detectionPreImage.setImageDrawable(null)
             startActivity(intent)
-        }
-        else{
+        } else {
             checkImage(username)
         }
     }
@@ -64,27 +59,30 @@ class DetectionActivity:AppCompatActivity() {
         }
         detecBT.setOnClickListener {
             if (bitmapForDetect != null) {
-                sendimage(encodeImage(bitmapForDetect!!).toString(),username)
+                sendimage(encodeImage(bitmapForDetect!!).toString(), username)
             } else {
                 Toast.makeText(this, "Please Select Image", Toast.LENGTH_SHORT).show()
             }
         }
-        /*ResultBT.setOnClickListener {
-            val intent = Intent(this, ResultImageDetection::class.java)
-            intent.putExtra("bitmapDetect", fixbug64(b64DetectingObject!!.b64))
-            intent.putExtra("imageclass",b64DetectingObject!!.imageclass)
-            intent.putExtra("score",b64DetectingObject!!.score)
-            detectionPreImage.setImageDrawable(null)
-            startActivity(intent)
-        }*/
-
-
     }
-
 
     override fun onResume() {
         super.onResume()
-        ProgressBar.setProgress(0,true)
+        ProgressBar.setProgress(0, true)
+    }
+
+    private fun getResizedBitmap(image: Bitmap, maxSize: Int): Bitmap? {
+        var width = image.width
+        var height = image.height
+        val bitmapRatio = width.toFloat() / height.toFloat()
+        if (bitmapRatio > 1) {
+            width = maxSize
+            height = (width / bitmapRatio).toInt()
+        } else {
+            height = maxSize
+            width = (height * bitmapRatio).toInt()
+        }
+        return Bitmap.createScaledBitmap(image, width, height, true)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -93,10 +91,9 @@ class DetectionActivity:AppCompatActivity() {
             imageUri = data.data
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
-                //detectionPreImage.setImageBitmap(bitmap)
                 detectionPreImage.setImageBitmap(bitmap);
-                //bitmap.compress(Bitmap.CompressFormat.JPEG, 100, ByteArrayOutputStream())
-                bitmapForDetect = bitmap
+                //bitmap.compress(Bitmap.CompressFormat.JPEG, 50, ByteArrayOutputStream())
+                bitmapForDetect = getResizedBitmap(bitmap,500)
             }catch (e: IOException){
                 e.printStackTrace()
             }
@@ -106,11 +103,14 @@ class DetectionActivity:AppCompatActivity() {
             detectionPreImage.setImageBitmap(photo);
             bitmapForDetect = photo
         }
+        if (requestCode == 2) {
+            Log.d("username", intent.getStringExtra("username").toString())
+        }
     }
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == MY_CAMERA_PERMISSION_CODE) {
@@ -144,15 +144,15 @@ class DetectionActivity:AppCompatActivity() {
         Log.d("testtt", b64)
         return b64
     }
-    private fun sendimage(base64: String,username:String) {
+    private fun sendimage(base64: String, username: String) {
         val usernametosent = username
         val client = OkHttpClient()
-        ProgressBar.setProgress(80,true)
+        ProgressBar.setProgress(80, true)
         val formbody: RequestBody = FormBody.Builder()
             .add("img", base64)
             .build();
         val request = Request.Builder()
-            .url("https://d0f88507a791.ngrok.io/test")
+            .url("https://24d637bae400.ngrok.io/test")
             .post(formbody)
             .build()
         client.newCall(request).enqueue(object : Callback {
@@ -164,15 +164,9 @@ class DetectionActivity:AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 val resStr = response.body!!.string()
                 runOnUiThread {
-                    Log.d("test", resStr)
                     b64DetectingObject = Gson().fromJson(resStr, Image64::class.java)
-                    ProgressBar.setProgress(100,false)
-                    //successText.text = "Detect Success"
-                    Log.d("test2", b64DetectingObject!!.b64)
-                    //Log.d("base64com", b64DetectingObject!!.b64)
-                    //decodeImage(b64DetectingObject!!.b64)
+                    ProgressBar.setProgress(100, false)
                     checkImage(usernametosent)
-
                 }
             }
 

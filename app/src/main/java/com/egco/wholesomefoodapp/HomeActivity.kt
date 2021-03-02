@@ -6,12 +6,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
+import androidx.navigation.ui.navigateUp
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.home_activity.*
@@ -20,7 +23,6 @@ import java.io.IOException
 
 class HomeActivity:AppCompatActivity() {
     @SuppressLint("SetTextI18n")
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
@@ -34,10 +36,10 @@ class HomeActivity:AppCompatActivity() {
             startActivity(intent)
         }
         val categoryList = arrayListOf(
-            Category("Status", R.drawable.catagory1),
+            Category("Detection Food Ingredient", R.drawable.catagory1),
             Category("History", R.drawable.catagory2),
             Category("Ingredient", R.drawable.catagory3),
-            Category("Detection", R.drawable.catagory4),
+            Category("How to use", R.drawable.catagory4),
         )
 
         val adapter = CustomAdapter(this, categoryList,username)
@@ -100,7 +102,7 @@ class HomeActivity:AppCompatActivity() {
             viewHolder.iconCategoryView.setImageResource(categoryList[position].icon)
 
             rowMain.setOnClickListener {
-                if(rowMain.categoryNameText.text == "Detection")
+                if(rowMain.categoryNameText.text == "Detection Food Ingredient")
                 {
                     val intent = Intent(context, DetectionActivity::class.java)
                     intent.putExtra("username",user_name)
@@ -113,6 +115,15 @@ class HomeActivity:AppCompatActivity() {
                     Log.d("tttt", user_name)
                     context.startActivity(intent)
                 }
+                if(rowMain.categoryNameText.text == "How to use")
+                {
+                    context.startActivity(Intent(context,HowToActivity::class.java))
+                }
+                if(rowMain.categoryNameText.text == "Ingredient")
+                {
+                    context.startActivity(Intent(context,IngredientShowActivity::class.java))
+                }
+
             }
 
             return rowMain

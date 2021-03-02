@@ -15,6 +15,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.history_activity.*
 import kotlinx.android.synthetic.main.setting_activity.*
 import java.io.*
 import java.util.*
@@ -63,8 +64,10 @@ class SettingActivity: AppCompatActivity() {
 
                 show()
             }
-
-
+        }
+        clearBT.setOnClickListener {
+            File(filesDir.absolutePath + File.separator + username).deleteRecursively()
+            Toast.makeText(this, "Clear History Success", Toast.LENGTH_SHORT).show()
         }
     }
 

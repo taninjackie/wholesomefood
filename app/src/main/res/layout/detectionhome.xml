@@ -8,32 +8,25 @@
     android:backgroundTint="#3F5080"
     android:backgroundTintMode="screen">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="413dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="32dp"
-        android:background="#00A59595"
-        android:backgroundTint="#26FFFFFF"
-        android:backgroundTintMode="screen"
-        android:gravity="center"
-        android:text="Detection"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="30sp"
+    <ImageView
+        android:id="@+id/detectionPreImage"
+        android:layout_width="265dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="152dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/camBt"
         android:layout_width="107dp"
         android:layout_height="53dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="392dp"
         android:backgroundTint="#39B6EF"
         android:text="camera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,29 +34,19 @@
         android:id="@+id/uploadBt"
         android:layout_width="107dp"
         android:layout_height="53dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="392dp"
         android:backgroundTint="#6AB66D"
-        android:text="UPLOAD"
+        android:text="Gallery"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.755"
+        app:layout_constraintHorizontal_bias="0.756"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/detectionPreImage"
-        android:layout_width="265dp"
-        android:layout_height="208dp"
-        android:layout_marginTop="128dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/detecBT"
         android:layout_width="187dp"
         android:layout_height="53dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="464dp"
         android:backgroundTint="#DF3C3C"
         android:text="Detect"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,11 +57,28 @@
         android:id="@+id/ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="516dp"
+        android:layout_marginTop="540dp"
         android:backgroundTint="#EF9A9A"
         app:indicatorColor="#EBFF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="413dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="56dp"
+        android:background="#00A59595"
+        android:backgroundTint="#26FFFFFF"
+        android:backgroundTintMode="screen"
+        android:gravity="center"
+        android:text="Detection"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

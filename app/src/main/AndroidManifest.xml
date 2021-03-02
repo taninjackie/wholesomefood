@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.egco.wholesomefoodapp"
     android:installLocation="preferExternal">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
@@ -18,22 +19,28 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
+        <activity
+            android:name=".NavigationActivity"
+            android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateUser"/>
-        <activity android:name=".CreateUser2"/>
-        <activity android:name=".CreateUserResult"/>
-        <activity android:name=".HomeActivity"/>
-        <activity android:name=".DetectionActivity"/>
-        <activity android:name=".ResultImageDetection"/>
-        <activity android:name=".SettingActivity"/>
-        <activity android:name=".HistoryActivity"/>
+        <activity android:name=".CreateUser" />
+        <activity android:name=".CreateUser2" />
+        <activity android:name=".CreateUserResult" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".DetectionActivity" />
+        <activity android:name=".ResultImageDetection" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".HistoryDetailActivity" />
+        <activity android:name=".IngredientShowActivity"/>
+        <activity android:name=".HowToActivity"/>
     </application>
 
 </manifest>
-
-

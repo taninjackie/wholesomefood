@@ -9,15 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.history_activity.*
 import kotlinx.android.synthetic.main.row.*
 import kotlinx.android.synthetic.main.row_history.view.*
 import java.io.File
 import java.io.FileInputStream
+import java.io.IOException
 import java.lang.RuntimeException
 import java.lang.reflect.InvocationTargetException
 import kotlin.math.log
@@ -55,8 +58,13 @@ class HistoryActivity:AppCompatActivity() {
 
         recyclerViewHistory.layoutManager = LinearLayoutManager(this)
         recyclerViewHistory.adapter = CustomAdapter(arrayNameOfFile, this,username)
-
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 2){ Log.d("back", "Back")}
+    }
+
 
 
     class CustomAdapter(private val arrayNameOfFile: ArrayList<HistoryFileName>, context: Context,username:String) :
@@ -78,22 +86,27 @@ class HistoryActivity:AppCompatActivity() {
             // Create a new view, which defines the UI of the list item
             val view = LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.row_history, viewGroup, false)
-
             return ViewHolder(view)
         }
 
         override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-            val bytes = ByteArray(1024)
-            val showHisText :List<String>
-            val outputStream = FileInputStream(File(MyContext.filesDir.absolutePath + File.separator + username2,arrayNameOfFile[position].name))
-            outputStream.read(bytes)
-            outputStream.close()
-            val byteToString = String(bytes)
-            showHisText = byteToString.split(",")
-            Log.d("byteToString", showHisText.toString())
+            val outputStreamString = FileInputStream(File(MyContext.filesDir.absolutePath + File.separator + username2,arrayNameOfFile[position].name))
+                .readBytes().toString(Charsets.UTF_8)
+            val saveData = Gson().fromJson(outputStreamString, SaveDetection::class.java)
 
-            viewHolder.dateHis.text = showHisText[0]
-            viewHolder.namefood.text = showHisText[2]
+            viewHolder.dateHis.text  = saveData.date
+            viewHolder.namefood.text = saveData.name
+
+            Log.d("po231", saveData.name)
+
+
+            viewHolder.itemView.setOnClickListener {
+                val intent = Intent(MyContext,HistoryDetailActivity::class.java)
+                intent.putExtra("savedata",outputStreamString)
+                MyContext.startActivity(intent)
+                //Toast.makeText(MyContext, position.toString(), Toast.LENGTH_SHORT).show()
+            }
+
 
         }
 
