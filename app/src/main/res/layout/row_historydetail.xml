@@ -37,12 +37,25 @@
                 android:id="@+id/nutraHisDetail"
                 android:layout_width="230dp"
                 android:layout_height="496dp"
-                android:layout_marginTop="72dp"
+                android:layout_marginTop="120dp"
                 android:text="TextView"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintHorizontal_bias="0.621"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ingredientHeadInHisDetail"
+                android:layout_width="179dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="88dp"
+                android:text="Nuturient :"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.376"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

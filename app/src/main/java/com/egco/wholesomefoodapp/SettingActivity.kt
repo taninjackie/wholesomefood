@@ -16,13 +16,30 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.history_activity.*
+import kotlinx.android.synthetic.main.row.*
 import kotlinx.android.synthetic.main.setting_activity.*
 import java.io.*
 import java.util.*
 import kotlin.math.log
 
 class SettingActivity: AppCompatActivity() {
-
+    private fun clearHisDialog(username:String) {
+        val builder = AlertDialog.Builder(ContextThemeWrapper(this, R.style.AlertDialogCustomWarning))
+        with(builder)
+        {
+            setTitle("Clear History ?")
+            setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
+                clearHis(username)
+            })
+            setNegativeButton("Cancel",null)
+            show()
+        }
+    }
+    private fun clearHis(username:String)
+    {
+        File(filesDir.absolutePath + File.separator + username).deleteRecursively()
+        Toast.makeText(this, "Clear History Success", Toast.LENGTH_SHORT).show()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_activity)
@@ -66,8 +83,7 @@ class SettingActivity: AppCompatActivity() {
             }
         }
         clearBT.setOnClickListener {
-            File(filesDir.absolutePath + File.separator + username).deleteRecursively()
-            Toast.makeText(this, "Clear History Success", Toast.LENGTH_SHORT).show()
+            clearHisDialog(username)
         }
     }
 

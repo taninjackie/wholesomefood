@@ -38,18 +38,20 @@ class CreateUser : AppCompatActivity() {
             usernameCreate = usrNameP.text.toString()
             name           = namesurP.text.toString()
 
-            if(usrNameP.text.toString() == "")
+            if(usrNameP.text.toString() == "" || usrNameP.text.toString().isBlank())
             {
                 usrNameP.error = "Please fill your username"
             }
 
-            if(namesurP.text.toString() == "")
+            if(namesurP.text.toString() == "" || namesurP.text.toString().isBlank())
             {
                 namesurP.error = "Please fill your name"
             }
 
 
             else if(usrNameP.text.toString() != ""  && namesurP.text.toString() != ""){
+                usrNameP.setText(usernameCreate.replace("\\s".toRegex(), ""))
+                usernameCreate = usrNameP.text.toString()
                 if(getUserTxt(applicationContext,"users.txt") != null)
                 {
                     val useroftext = getUserTxt(applicationContext,"users.txt")
