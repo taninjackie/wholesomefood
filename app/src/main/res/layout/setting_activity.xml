@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#26801A8A">
+    android:background="#14801A8A">
 
     <Button
         android:id="@+id/namesursetting"

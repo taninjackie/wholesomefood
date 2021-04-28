@@ -6,15 +6,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.navigateUp
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.home_activity.*
@@ -35,15 +32,32 @@ class HomeActivity:AppCompatActivity() {
             intent.putExtra("username", username)
             startActivity(intent)
         }
-        val categoryList = arrayListOf(
+        qsm.setOnClickListener {
+            startActivity(Intent(this,HowToActivity::class.java))
+        }
+        CardViewDetection.setOnClickListener {
+            val intent = Intent(this, DetectionActivity::class.java)
+            intent.putExtra("username",username)
+            startActivity(intent)
+        }
+        CardViewIngre.setOnClickListener {
+            startActivity(Intent(this,IngredientShowActivity::class.java))
+        }
+        CardViewHis.setOnClickListener {
+            val intent =Intent(this, HistoryActivity::class.java)
+            intent.putExtra("username",username)
+            Log.d("tttt", username)
+            startActivity(intent)
+        }
+        /*val categoryList = arrayListOf(
             Category("Detection Food Ingredient", R.drawable.catagory1),
             Category("History", R.drawable.catagory2),
-            Category("Ingredient", R.drawable.catagory3),
-            Category("How to use", R.drawable.catagory4),
-        )
+            Category("Ingredient", R.drawable.catagory3)/*,
+            Category("How to use", R.drawable.catagory4),*/
+        )*/
 
-        val adapter = CustomAdapter(this, categoryList,username)
-        GridView.adapter = adapter
+        //val adapter = CustomAdapter(this, categoryList,username)
+        //GridView.adapter = adapter
 
     }
     private fun getJson(context: Context, fileName: String): String? {
@@ -91,7 +105,7 @@ class HomeActivity:AppCompatActivity() {
             if (convertView == null) {
                 val layoutInflater = LayoutInflater.from(parent!!.context)
                 rowMain = layoutInflater.inflate(R.layout.item_category, parent, false)
-                val viewHolder = ViewHolder(rowMain.categoryNameText, rowMain.iconCategoryView)
+                val viewHolder = ViewHolder(rowMain.DetectText, rowMain.iconCategoryView)
                 rowMain.tag = viewHolder
             } else {
                 rowMain = convertView
@@ -102,24 +116,24 @@ class HomeActivity:AppCompatActivity() {
             viewHolder.iconCategoryView.setImageResource(categoryList[position].icon)
 
             rowMain.setOnClickListener {
-                if(rowMain.categoryNameText.text == "Detection Food Ingredient")
+                if(rowMain.DetectText.text == "Detection Food Ingredient")
                 {
                     val intent = Intent(context, DetectionActivity::class.java)
                     intent.putExtra("username",user_name)
                     context.startActivity(intent)
                 }
-                if(rowMain.categoryNameText.text == "History")
+                if(rowMain.DetectText.text == "History")
                 {
                     val intent =Intent(context, HistoryActivity::class.java)
                     intent.putExtra("username",user_name)
                     Log.d("tttt", user_name)
                     context.startActivity(intent)
                 }
-                if(rowMain.categoryNameText.text == "How to use")
+                /*if(rowMain.categoryNameText.text == "How to use")
                 {
                     context.startActivity(Intent(context,HowToActivity::class.java))
-                }
-                if(rowMain.categoryNameText.text == "Ingredient")
+                }*/
+                if(rowMain.DetectText.text == "Ingredient")
                 {
                     context.startActivity(Intent(context,IngredientShowActivity::class.java))
                 }

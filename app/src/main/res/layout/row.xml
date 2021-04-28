@@ -10,7 +10,7 @@
     app:cardUseCompatPadding="true">
 
     <TextView
-        android:id="@+id/user"
+        android:id="@+id/candetectName"
         android:layout_width="276dp"
         android:layout_height="56dp"
         android:gravity="center"

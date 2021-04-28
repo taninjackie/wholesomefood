@@ -4,45 +4,205 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#28B1E6FF">
+    android:background="#FFFFFF">
 
-
-    <GridView
-        android:id="@+id/GridView"
-        android:layout_width="403dp"
-        android:layout_height="418dp"
-        android:layout_marginTop="168dp"
-        android:numColumns="auto_fit"
+    <View
+        android:id="@+id/view"
+        android:layout_width="412dp"
+        android:layout_height="516dp"
+        android:layout_marginTop="130dp"
+        android:background="#5A9EBCCA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/CardViewHis"
+        style="@style/ShapeAppearanceOverlay.MyApp.MaterialCardView.Cut"
+        android:layout_width="150dp"
+        android:layout_height="147dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="400dp"
+        app:cardBackgroundColor="#0074767B"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </GridView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
+
+            <ImageView
+                android:id="@+id/iconCategoryView"
+                android:layout_width="103dp"
+                android:layout_height="86dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.177"
+                app:srcCompat="@drawable/catagory3" />
+
+            <TextView
+                android:id="@+id/DetectText"
+                android:layout_width="221dp"
+                android:layout_height="47dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="History"
+                android:textColor="#070404"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.875" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/CardViewIngre"
+        style="@style/ShapeAppearanceOverlay.MyApp.MaterialCardView.Cut"
+        android:layout_width="150dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="180dp"
+        app:cardBackgroundColor="#0074767B"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
+
+            <ImageView
+                android:id="@+id/iconCategoryIngreView"
+                android:layout_width="103dp"
+                android:layout_height="86dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.177"
+                app:srcCompat="@drawable/catagory2" />
+
+            <TextView
+                android:id="@+id/DetectIngreText"
+                android:layout_width="221dp"
+                android:layout_height="47dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="Ingredient"
+                android:textColor="#070404"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.508"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.875" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/CardViewDetection"
+        style="@style/ShapeAppearanceOverlay.MyApp.MaterialCardView.Cut"
+        android:layout_width="305dp"
+        android:layout_height="179dp"
+        android:layout_marginTop="180dp"
+        app:cardBackgroundColor="#0074767B"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
+
+            <ImageView
+                android:id="@+id/iconCategoryHisView"
+                android:layout_width="103dp"
+                android:layout_height="86dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.502"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.177"
+                app:srcCompat="@drawable/catagory1" />
+
+            <TextView
+                android:id="@+id/HisText"
+                android:layout_width="221dp"
+                android:layout_height="47dp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="Detection food Ingredient"
+                android:textColor="#070404"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.78" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageView
+        android:id="@+id/qsm"
+        android:layout_width="45dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="668dp"
+        android:background="#1EFFFFFF"
+        android:backgroundTint="#00FE0303"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.218"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/qsm" />
+
+    <ImageView
+        android:id="@+id/settingicon"
+        android:layout_width="60dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="668dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.762"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/settingicon" />
 
     <TextView
         android:id="@+id/nameHome"
-        android:layout_width="374dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="92dp"
+        android:layout_width="370dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="sans-serif-black"
         android:text="Name :"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#060505"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.837"
+        app:layout_constraintHorizontal_bias="0.878"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/settingicon"
-        android:layout_width="60dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/settingicon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
