@@ -152,7 +152,7 @@ class DetectionActivity:AppCompatActivity() {
             .add("img", base64)
             .build();
         val request = Request.Builder()
-            .url("https://361d74c5f885.ngrok.io/test")
+            .url("https://e9419c33c3dd.ngrok.io/test")
             .post(formbody)
             .build()
         client.newCall(request).enqueue(object : Callback {

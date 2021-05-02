@@ -1,0 +1,138 @@
+{
+  "apple": {
+    "nutrient": [
+      "carbohydrates",
+      "sodium",
+      "potassium",
+      "Dietary_fiber",
+      "vitamin_A",
+      "vitamin_B6",
+      "vitamin_C",
+      "vitamin_E",
+      "vitamin_K",
+      "calcium",
+      "iron",
+      "magnesium",
+      "thiamine",
+      "riboplavin",
+      "phosphorus"
+    ]
+  },
+  "broccoli": {
+    "nutrient": [
+      "carbohydrates",
+      "sodium",
+      "potassium",
+      "Dietary_fiber",
+      "protein",
+      "vitamin_A",
+      "vitamin_B6",
+      "vitamin_C",
+      "vitamin_E",
+      "vitamin_K",
+      "calcium",
+      "iron",
+      "magnesium",
+      "thiamine",
+      "Niacin",
+      "riboplavin",
+      "zinc",
+      "phosphorus"
+    ]
+  },
+  
+  "cucumber": {
+    "nutrient": [
+      "carbohydrates",
+      "sodium",
+      "potassium",
+      "protein",
+      "vitamin_A",
+      "vitamin_C",
+      "calcium",
+      "iron",
+      "magnesium"
+      ]
+  },
+  "pumpkin": {
+    "nutrient": [
+      "carbohydrates",
+      "potassium",
+       "protein",
+      "vitamin_A",
+      "vitamin_B6",
+      "vitamin_C",
+      "vitamin_E",
+      "vitamin_K",
+      "calcium",
+      "iron",
+      "magnesium",
+      "thiamine",
+      "Niacin",
+      "riboplavin",
+      "zinc",
+      "phosphorus"
+    ]
+  },
+  "rambutan": {
+    "nutrient": [
+      "carbohydrates",
+      "dietary_fiber",
+      "protein",
+      "vitamin_C",
+      "iron",
+      "magnesium",
+      "thiamine",
+      "Niacin"
+    ]
+  },
+  "salmon": {
+    "nutrient": [
+      "fat",
+      "sodium",
+      "potassium",
+      "protein",
+      "vitamin_A",
+      "vitamin_B6",
+      "vitamin_B12",
+      "vitamin_D",
+      "calcium",
+      "iron",
+      "magnesium"
+    ]
+  },
+  "shrimp": {
+    "nutrient": [
+      "protein",
+      "sodium",
+      "potassium",
+      "calcium",
+      "iron",
+      "magnesium",
+      "zinc",
+      "phosphorus"
+    ]
+  },
+  "tomato": {
+    "nutrient": [
+      "carbohydrates",
+      "sodium",
+      "potassium",
+      "dietary_fiber",
+      "protein",
+      "vitamin_A",
+      "vitamin_B6",
+      "vitamin_C",
+      "vitamin_E",
+      "vitamin_K",
+      "calcium",
+      "iron",
+      "magnesium",
+      "thiamine",
+      "niacin",
+      "riboplavin",
+      "zinc",
+      "phosphorus"
+    ]
+  }
+}

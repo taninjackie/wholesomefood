@@ -4,17 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#8481D4FA">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="412dp"
-        android:layout_height="516dp"
-        android:layout_marginTop="130dp"
-        android:background="#5A9EBCCA"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/CardViewNameText"
+        style="@style/ShapeAppearanceOverlay.MyApp.MaterialCardView.Cut"
+        android:layout_width="384dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="#0074767B"
+        app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="398dp"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
+
+            <TextView
+                android:id="@+id/nameHome"
+                android:layout_width="344dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="24dp"
+                android:background="#00FFC8C8"
+                android:fontFamily="sans-serif-black"
+                android:text="Name :"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="#060505"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.296"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/CardViewHis"
@@ -189,20 +216,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/settingicon" />
-
-    <TextView
-        android:id="@+id/nameHome"
-        android:layout_width="370dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="64dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Name :"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#060505"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.878"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
