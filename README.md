@@ -1,4 +1,4 @@
-# wholesomefood
+Whole Some Food Ingredient Recognition
 Senior project
 
 Project Member
